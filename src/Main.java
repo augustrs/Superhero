@@ -3,7 +3,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Velkommen til SUPERHERO UNIVERSET.\nTast 1. for at oprette en ny superhelt.\nTast 9 for at afslutte.");
+
+        System.out.println("Velkommen til SUPERHERO UNIVERSET.\nTast 1 for at oprette en ny superhelt.\nTast 9 for at afslutte.");
         int menuValg = scanner.nextInt();
         if (menuValg == 1) {
             scanner.nextLine();
@@ -16,7 +17,12 @@ public class Main {
             System.out.println("Indtast superkræften på din superhelt: ");
             String superKræft = scanner.nextLine();
             System.out.println("Indtast superheltens creation year: ");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Du skal indtaste et tal: ");
+                scanner.nextLine();
+            }
             int oprettelsesÅr = scanner.nextInt();
+
             scanner.nextLine();
             System.out.println("Indtast superheltens styrke: ");
             String styrke = scanner.nextLine();
