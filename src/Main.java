@@ -3,6 +3,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Velkommen til SUPERHERO UNIVERSET.\n1. Opret superhelt\n9. Afslut");
+        int menuValg = scanner.nextInt();
+        if (menuValg == 1) {
+            scanner.nextLine();
+
         Database database = new Database();
             System.out.println("Indtast navnet på din superhelt: ");
             String navn = scanner.nextLine();
@@ -29,4 +34,4 @@ public class Main {
         }
 
     }
-
+}
