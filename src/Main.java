@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Indtast navnet på din superhelt: ");
-        String name = scanner.nextLine();
+        String navn = scanner.nextLine();
         System.out.println("Indtast din superhelts rigtige navn: ");
         String ægteNavn = scanner.nextLine();
         System.out.println("Indtast superkræften på din superhelt: ");
@@ -12,6 +12,8 @@ public class Main {
         System.out.println("Indtast superheltens creation year: ");
         int oprettelsesÅr = scanner.nextInt();
         scanner.nextLine();
+        System.out.println("Indtast superheltens styrke: ");
+        String styrke = scanner.nextLine();
         System.out.println("Er superhelten menneske? (j/n): ");
         char menneske = scanner.next().charAt(0);
         boolean erMenneske = false;
@@ -21,14 +23,7 @@ public class Main {
             erMenneske = false;
         }
 
-        System.out.println("Indtast superheltens styrke: ");
-        String styrke = scanner.nextLine();
+        Superhero superhero = new Superhero(navn, ægteNavn, superKræft,oprettelsesÅr, erMenneske,styrke);
 
-
-        System.out.println(name);
-        System.out.println(superKræft);
-        System.out.println(oprettelsesÅr);
-        System.out.println(styrke);
-        System.out.println(erMenneske);
     }
 }
