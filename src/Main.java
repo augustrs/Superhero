@@ -3,7 +3,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        Database database = new Database();
         int menuValg;
+
 
         do {
         System.out.println("Velkommen til SUPERHERO UNIVERSET.\nTast 1 for at oprette en ny superhelt.\nTast 3 for at printe din superhelte-database\nTast 9 for at afslutte.");
@@ -12,7 +14,7 @@ public class Main {
 
 
                 if (menuValg == 1) {
-                    Database database = new Database();
+
                     System.out.println("Indtast navnet på din superhelt: ");
                     String navn = scanner.nextLine();
                     System.out.println("Indtast din superhelts rigtige navn: ");
@@ -44,6 +46,7 @@ public class Main {
                 } else if (menuValg == 3) {
                 database.printAlleSuperhero();
                 }
+
             } while (menuValg != 9);
             System.out.println("System exit.");
         }

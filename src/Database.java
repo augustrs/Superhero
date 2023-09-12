@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Database {
@@ -7,6 +8,12 @@ public class Database {
 
     public void addSuperhero(String navn, String ægteNavn, String superKræft, int oprettelsesÅr,boolean erMenneske,String styrke) {
         superhelteListe.add(new Superhero(navn, ægteNavn, superKræft, oprettelsesÅr, erMenneske, styrke));
+    }
+
+    public void printAlleSuperhero() {
+        for (Superhero superhelt:superhelteListe) {
+            System.out.println(superhelt);
+        }
     }
 
 
