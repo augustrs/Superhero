@@ -32,5 +32,4 @@ public class Superhero {
     public String getStyrke() {
         return styrke;
     }
-
 }

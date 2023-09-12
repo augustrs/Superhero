@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         int menuValg;
+
         do {
         System.out.println("Velkommen til SUPERHERO UNIVERSET.\nTast 1 for at oprette en ny superhelt.\nTast 9 for at afslutte.");
         menuValg = scanner.nextInt();
@@ -40,6 +40,8 @@ public class Main {
                     }
                     Superhero superhero = new Superhero(navn, ægteNavn, superKræft, oprettelsesÅr, erMenneske, styrke);
                     database.addSuperhero(navn, ægteNavn, superKræft, oprettelsesÅr, erMenneske, styrke);
+
+
                 }
             } while (menuValg != 9);
             System.out.println("System exit.");
