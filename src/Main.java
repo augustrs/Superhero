@@ -6,7 +6,7 @@ public class Main {
         int menuValg;
 
         do {
-        System.out.println("Velkommen til SUPERHERO UNIVERSET.\nTast 1 for at oprette en ny superhelt.\nTast 9 for at afslutte.");
+        System.out.println("Velkommen til SUPERHERO UNIVERSET.\nTast 1 for at oprette en ny superhelt.\nTast 3 for at printe din superhelte-database\nTast 9 for at afslutte.");
         menuValg = scanner.nextInt();
         scanner.nextLine();
 

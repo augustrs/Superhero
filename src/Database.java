@@ -6,7 +6,7 @@ public class Database {
 
 
     public void addSuperhero(String navn, String ægteNavn, String superKræft, int oprettelsesÅr,boolean erMenneske,String styrke) {
-        superhelteListe[count++] = new Superhero(navn, ægteNavn, superKræft, oprettelsesÅr, erMenneske, styrke);
+        superhelteListe.add(new Superhero(navn, ægteNavn, superKræft, oprettelsesÅr, erMenneske, styrke));
     }
 
 
