@@ -32,4 +32,16 @@ public class Superhero {
     public String getStyrke() {
         return styrke;
     }
+
+    @Override
+    public String toString() {
+        return "Superhelt: " +
+                "Navn: " + navn + '\'' +
+                " Superheltens ægte navn: " + ægteNavn + '\'' +
+                " Superheltens superkræft: " + superKræft + '\'' +
+                " Året din superhelt fik superkræfter: " + oprettelsesÅr +
+                " Superheltens styrke: " + styrke + '\'' +
+                " Er din superhelt menneske: " + erMenneske;
+
+    }
 }

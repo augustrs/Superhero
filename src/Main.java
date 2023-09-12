@@ -38,10 +38,11 @@ public class Main {
                     if (menneske == 'n') {
                         erMenneske = false;
                     }
-                    Superhero superhero = new Superhero(navn, ægteNavn, superKræft, oprettelsesÅr, erMenneske, styrke);
+
                     database.addSuperhero(navn, ægteNavn, superKræft, oprettelsesÅr, erMenneske, styrke);
 
-
+                } else if (menuValg == 3) {
+                database.printAlleSuperhero();
                 }
             } while (menuValg != 9);
             System.out.println("System exit.");
