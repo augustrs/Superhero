@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Velkommen til SUPERHERO UNIVERSET.\n1. Opret superhelt\n9. Afslut");
+        System.out.println("Velkommen til SUPERHERO UNIVERSET.\nTast 1. for at oprette en ny superhelt.\nTast 9 for at afslutte.");
         int menuValg = scanner.nextInt();
         if (menuValg == 1) {
             scanner.nextLine();
@@ -31,6 +31,9 @@ public class Main {
             }
             Superhero superhero = new Superhero(navn, ægteNavn, superKræft, oprettelsesÅr, erMenneske, styrke);
             database.addSuperhero(navn, ægteNavn, superKræft, oprettelsesÅr, erMenneske, styrke);
+
+        } if (menuValg != 1) {
+            System.out.println("System exit.");
         }
 
     }
