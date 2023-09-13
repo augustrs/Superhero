@@ -45,6 +45,8 @@ public class Main {
 
                 } else if (menuValg == 3) {
                 database.printAlleSuperhero();
+                    System.out.println("Du har indtil videre oprettet så mange superhelte: ");
+                    database.printAntalSuperhelte();
                 }
 
             } while (menuValg != 9);
