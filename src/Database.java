@@ -5,7 +5,7 @@ public class Database {
     private ArrayList<Superhero> superhelteListe = new ArrayList<>();
 
 
-    public void addSuperhero(String navn, String ægteNavn, String superKræft, int oprettelsesÅr,boolean erMenneske,String styrke) {
+    public void addSuperhero(String navn, String ægteNavn, String superKræft, int oprettelsesÅr, boolean erMenneske, String styrke) {
         superhelteListe.add(new Superhero(navn, ægteNavn, superKræft, oprettelsesÅr, erMenneske, styrke));
     }
 
@@ -18,6 +18,16 @@ public class Database {
             System.out.println(superhelt);
         }
     }
+    public Superhero search(String superheroNavn) {
+        for (Superhero superhero : superhelteListe) {
+            if(superhero.getNavn().equals(superheroNavn)) {
+                return superhero;
+            }
+        }
+
+        return null;
+    }
 
 
 }
+
