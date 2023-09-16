@@ -25,7 +25,7 @@ public class Database {
         }
         return null;
     }
-
+    //Giver os adgang til at redigere i de superhelte vi nu har oprettet i vores database ved at angive deres superhelte navn
     public void editSuperhero(String superheroNavn, String nytNavn, String nytÆgteNavn, String nySuperKræft, int nytOprettelsesÅr, boolean erNytMenneske, String nyStyrke) {
         Superhero superhelt = search(superheroNavn);
 
