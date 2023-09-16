@@ -1,53 +1,102 @@
 import java.util.Scanner;
 
 public class UserInterface {
-    Scanner scanner = new Scanner(System.in);
-    Database database = new Database();
-    int menuValg;
+    public static void startProgram() {
+        Scanner scanner = new Scanner(System.in);
+        Database database = new Database();
+        int menuValg;
 
-
-    public void addSuperhero() {
-        database.addSuperhero("August", "Aughul", "Roidmonster", 2002, false, "bænk");
-        database.addSuperhero("Joakim", "Kimbo", "Javamesteren", 2001, false, "beast");
-        database.addSuperhero("Thomas", "Tog", "Snusdræberen", 2002, true, "flække en pakke på rekort tid");
-        System.out.println("Indtast navnet på din superhelt: ");
-        String navn = scanner.nextLine();
-        System.out.println("Indtast din superhelts rigtige navn: ");
-        String ægteNavn = scanner.nextLine();
-        System.out.println("Indtast superkræften på din superhelt: ");
-        String superKræft = scanner.nextLine();
-        System.out.println("Indtast superheltens creation year: ");
-        while (!scanner.hasNextInt()) {
-            System.out.println("Du skal indtaste et tal: ");
+        do {
+            System.out.println("Velkommen til SUPERHERO UNIVERSET.\nTast 1 for at oprette en ny superhelt.\nTast 3 for at printe din superhelte-database\nTast 4 for at søge efter en oprettet superhelt\nTast 5 for at redigere i en oprettet superhelt\nTast 9 for at afslutte.");
+            menuValg = scanner.nextInt();
             scanner.nextLine();
+
+
+            if (menuValg == 1) {
+
+                System.out.println("Indtast navnet på din superhelt: ");
+                String navn = scanner.nextLine();
+                System.out.println("Indtast din superhelts rigtige navn: ");
+                String ægteNavn = scanner.nextLine();
+                System.out.println("Indtast superkræften på din superhelt: ");
+                String superKræft = scanner.nextLine();
+                System.out.println("Indtast superheltens creation year: ");
+                while (!scanner.hasNextInt()) {
+                    System.out.println("Du skal indtaste et tal: ");
+                    scanner.nextLine();
+                }
+                int oprettelsesÅr = scanner.nextInt();
+
+                scanner.nextLine();
+                System.out.println("Indtast superheltens styrke: ");
+                String styrke = scanner.nextLine();
+                System.out.println("Er superhelten menneske? (j/n): ");
+                char menneske = scanner.next().charAt(0);
+                boolean erMenneske = false;
+                if (menneske == 'j') {
+                    erMenneske = true;
+                }
+                if (menneske == 'n') {
+                    erMenneske = false;
+                }
+
+                database.addSuperhero(navn, ægteNavn, superKræft, oprettelsesÅr, erMenneske, styrke);
+
+            } else if (menuValg == 3) {
+                database.printAlleSuperhero();
+                System.out.println("Du har indtil videre oprettet så mange superhelte: ");
+                database.printAntalSuperhelte();
+            } else if (menuValg == 4) {
+                System.out.println("Indtast navnet på superhelten, du vil søge efter: ");
+                String superheroName = scanner.nextLine();
+                Superhero foundSuperhero = database.search(superheroName);
+
+                if (foundSuperhero != null) {
+                    System.out.println("Superhelt fundet:");
+                    System.out.println(foundSuperhero);
+                } else {
+                    System.out.println("Superhelten med navnet '" + superheroName + "' blev ikke fundet.");
+                }
+            }else if (menuValg == 5) {
+                System.out.println("Indtast navnet på superhelten, du vil redigere: ");
+                String superheroName = scanner.nextLine();
+                Superhero superheroToEdit = database.search(superheroName);
+
+                if (superheroToEdit != null) {
+                    System.out.println("Superhelt fundet:");
+                    System.out.println(superheroToEdit);
+                    System.out.println("Indtast nye oplysninger for superhelten:");
+
+                    // Indtast nye oplysninger og opdater superhelten
+                    System.out.println("Indtast nyt navn: ");
+                    String nytNavn = scanner.nextLine();
+                    System.out.println("Indtast nyt ægte navn: ");
+                    String nytÆgteNavn = scanner.nextLine();
+                    System.out.println("Indtast ny superkræft: ");
+                    String nySuperKræft = scanner.nextLine();
+                    System.out.println("Indtast nyt oprettelsesår: ");
+                    int nytOprettelsesÅr = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Er superhelten menneske? (j/n): ");
+                    char menneske = scanner.next().charAt(0);
+                    boolean erMenneske = (menneske == 'j' || menneske == 'J');
+
+                    // Indtast nye styrke
+                    scanner.nextLine();
+                    System.out.println("Indtast ny styrke: ");
+                    String nyStyrke = scanner.nextLine();
+
+                    // Kald editSuperhero-metoden i databasen for at opdatere superhelten
+                    database.editSuperhero(superheroName,nytNavn,nytÆgteNavn , nySuperKræft, nytOprettelsesÅr, erMenneske, nyStyrke);
+                } else {
+                    System.out.println("Superhelten med navnet '" + superheroName + "' blev ikke fundet.");
+                }
+            }
+
+            }
+            while (menuValg != 9) ;
+            System.out.println("System exit.");
         }
-        int oprettelsesÅr = scanner.nextInt();
-
-        scanner.nextLine();
-        System.out.println("Indtast superheltens styrke: ");
-        String styrke = scanner.nextLine();
-        System.out.println("Er superhelten menneske? (j/n): ");
-        char menneske = scanner.next().charAt(0);
-        boolean erMenneske = false;
-        if (menneske == 'j') {
-            erMenneske = true;
-        }
-        if (menneske == 'n') {
-            erMenneske = false;
-        }
-
-        database.addSuperhero(navn, ægteNavn, superKræft, oprettelsesÅr, erMenneske, styrke);
-    }
-
-    public void StartProgram() {
-        System.out.println("Velkommen til SUPERHERO UNIVERSET.\nTast 1 for at oprette en ny superhelt.\nTast 3 for at printe din superhelte-database\nTast 4 for at søge efter en oprettet superhelt\nTast 9 for at afslutte.");
-        
-    }
-    public void printAlleSuperhero () {
-        database.printAlleSuperhero();
-        System.out.println("Du har indtil videre oprettet så mange superhelte: ");
-        database.printAntalSuperhelte();
-    }
-
-
 }
+
+

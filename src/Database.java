@@ -26,6 +26,21 @@ public class Database {
         return null;
     }
 
+    public void editSuperhero(String superheroNavn, String nytNavn, String nytÆgteNavn, String nySuperKræft, int nytOprettelsesÅr, boolean erNytMenneske, String nyStyrke) {
+        Superhero superhelt = search(superheroNavn);
+
+        if (superhelt != null) {
+            superhelt.setNavn(nytNavn);
+            superhelt.setÆgteNavn(nytÆgteNavn);
+            superhelt.setSuperKræft(nySuperKræft);
+            superhelt.setOprettelsesÅr(nytOprettelsesÅr);
+            superhelt.setErMenneske(erNytMenneske);
+            superhelt.setStyrke(nyStyrke);
+            System.out.println("Superhelt opdateret: " + superhelt);
+        } else {
+            System.out.println("Superhelt med navn " + superheroNavn + " blev ikke fundet.");
+        }
+    }
 
 }
 

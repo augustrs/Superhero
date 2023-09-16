@@ -38,6 +38,30 @@ public class Superhero {
         return styrke;
     }
 
+    public void setSuperKræft(String superKræft) {
+        this.superKræft = superKræft;
+    }
+
+    public void setOprettelsesÅr(int oprettelsesÅr) {
+        this.oprettelsesÅr = oprettelsesÅr;
+    }
+
+    public void setErMenneske(boolean erMenneske) {
+        this.erMenneske = erMenneske;
+    }
+
+    public void setStyrke(String styrke) {
+        this.styrke = styrke;
+    }
+
+    public void setNavn(String navn) {
+        this.navn = navn;
+    }
+
+    public void setÆgteNavn(String ægteNavn) {
+        this.ægteNavn = ægteNavn;
+    }
+
     @Override
     public String toString() {
         return "Superhelt: " +
