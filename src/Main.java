@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
+
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Database database = new Database();
         int menuValg;
 
         do {
@@ -24,14 +24,14 @@ public class Main {
             }
             else if (menuValg == 4) {
             System.out.println("Indtast navnet på superhelten, du vil søge efter: ");
-            String superheroName = scanner.nextLine();
-            Superhero foundSuperhero = database.search(superheroName);
+            String superheroNavn = scanner.nextLine();
+            Superhero findSuperhero = database.search(superheroNavn);
 
-            if (foundSuperhero != null) {
+            if (findSuperhero != null) {
                 System.out.println("Superhelt fundet:");
-                System.out.println(foundSuperhero);
+                System.out.println(findSuperhero);
             } else {
-                System.out.println("Superhelten med navnet '" + superheroName + "' blev ikke fundet.");
+                System.out.println("Superhelten med navnet '" + superheroNavn + "' blev ikke fundet.");
             }
         }
 
