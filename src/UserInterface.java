@@ -95,11 +95,27 @@ public class UserInterface {
                     System.out.println("Indtast ny superkræft: ");
                     String nySuperKræft = scanner.nextLine();
                     System.out.println("Indtast nyt oprettelsesår: ");
+                    while (!scanner.hasNextInt()) {
+                        System.out.println("Du skal indtaste et tal: ");
+                        scanner.nextLine();
+                    }
                     int nytOprettelsesÅr = scanner.nextInt();
                     scanner.nextLine();
-                    System.out.println("Er superhelten menneske? (j/n): ");
-                    char menneske = scanner.next().charAt(0);
-                    boolean erMenneske = (menneske == 'j' || menneske == 'J');
+
+                    boolean erMenneske = true;
+                    char menneske;
+                    do {
+                        System.out.println("Er superhelten menneske? (j/n): ");
+
+                        menneske = scanner.next().charAt(0);
+                        if (menneske == 'j') {
+                            erMenneske = true;
+                        } else if (menneske == 'n') {
+                            erMenneske = false;
+                        } else {
+                            System.out.println("Ugyldigt input, indtast j/n");
+                        }
+                    } while (menneske != 'j' && menneske != 'n');
 
                     // Indtast nye styrke
                     scanner.nextLine();
