@@ -1,15 +1,27 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserInterface {
     public static void startProgram() {
         Scanner scanner = new Scanner(System.in);
         Database database = new Database();
-        int menuValg;
+        int menuValg = 0;
 
         do {
-            System.out.println("Velkommen til SUPERHERO UNIVERSET.\nTast 1 for at oprette en ny superhelt.\nTast 3 for at printe din superhelte-database\nTast 4 for at søge efter en oprettet superhelt\nTast 5 for at redigere i en oprettet superhelt\nTast 9 for at afslutte.");
-            menuValg = scanner.nextInt();
-            scanner.nextLine();
+            System.out.println("Velkommen til SUPERHERO UNIVERSET." +
+                    "\nTast 1 for at oprette en ny superhelt." +
+                    "\nTast 3 for at printe din superhelte-database" +
+                    "\nTast 4 for at søge efter en oprettet superhelt" +
+                    "\nTast 5 for at redigere i en oprettet superhelt" +
+                    "\nTast 9 for at afslutte.");
+            try {
+                menuValg = scanner.nextInt();
+                scanner.nextLine();
+
+            } catch (InputMismatchException e) {
+                System.out.println("Fejl, tast et tal fra menuen");
+                scanner.nextLine();
+            }
 
 
             if (menuValg == 1) {
@@ -30,15 +42,23 @@ public class UserInterface {
                 scanner.nextLine();
                 System.out.println("Indtast superheltens styrke: ");
                 String styrke = scanner.nextLine();
-                System.out.println("Er superhelten menneske? (j/n): ");
-                char menneske = scanner.next().charAt(0);
-                boolean erMenneske = false;
-                if (menneske == 'j') {
-                    erMenneske = true;
-                }
-                if (menneske == 'n') {
-                    erMenneske = false;
-                }
+                boolean erMenneske = true;
+                char menneske;
+                do {
+                    System.out.println("Er superhelten menneske? (j/n): ");
+
+                    menneske = scanner.next().charAt(0);
+
+                    if (menneske == 'j') {
+                        erMenneske = true;
+                    } else if (menneske == 'n') {
+                        erMenneske = false;
+                    } else {
+                        System.out.println("Ugyldigt input, indtast j/n");
+                    }
+                } while (menneske != 'j' && menneske != 'n');
+
+
 
                 database.addSuperhero(navn, ægteNavn, superKræft, oprettelsesÅr, erMenneske, styrke);
 
